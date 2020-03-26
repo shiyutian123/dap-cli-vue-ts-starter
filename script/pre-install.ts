@@ -16,6 +16,7 @@ const rmDirs = [
 const rmFiles: string[] = [
   "script/pre-install.ts"
 ]
+
 const modifyFiles = [
   "LICENSE",
   "package.json",
@@ -23,7 +24,7 @@ const modifyFiles = [
   ".dap-cli.json"
 ]
 const renameFiles: any[] = [
-  ["public/modules/myLibName", "public/modules/__myLibName__"],
+  ["src/modules/myLibName", "src/modules/__myLibName__"],
   ["src/assets/modules/myLibName", "src/assets/modules/__myLibName__"]
 ]
 

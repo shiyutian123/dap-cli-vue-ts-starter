@@ -5,7 +5,7 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "postinstall1": "ts-node ./script/pre-install.ts && npm run install-dap-ui",
+    "postinstall": "ts-node ./script/pre-install.ts && npm run install-dap-ui",
     "install-dap-ui": "cd ./node_modules/dap-ui && npm install",
     "lint": "vue-cli-service lint"
   },
