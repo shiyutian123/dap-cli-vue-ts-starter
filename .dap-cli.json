@@ -1,0 +1,32 @@
+{
+    "version": "0.0.1",
+    "name": "dap-plugin-scaffold-__myLibName__",
+    "package": {
+      "src": {
+        "code": "__myLibName__"
+      }
+    },
+    "devEnv": {
+        "baseDomain": "http://demo-dap.definesys.com:30574",
+        "needSSO": false, 
+        "themeColor": "#27b766",
+        "ssoConfig": {
+          "ssoDomain": "http://k8s.definesys.com:30008",
+          "clientId": "dapAppClient",
+          "authorize": "/uaa/oauth/authorize",
+          "scope": "",
+          "localUrl": "http://localhost:8080",
+          "logoutStandard": "http://k8s.definesys.com:30008/uaa/logout" 
+        },
+        "enableLablePage": false,
+        "enableTracing": true,
+        "enableLogout": true,
+        "mutliTab": false,
+        "appInfo": {
+          "appId" : "199fe91e-cb33-42e4-9359-f3c50d0f3bde",
+          "appSecre" : "2e3575fb-34df-493e-aeab-f9a41a532a82",
+          "appCode" : "t1-app"
+        }
+    },
+    "deps": []
+}
