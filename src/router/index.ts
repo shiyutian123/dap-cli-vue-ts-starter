@@ -61,7 +61,11 @@ const routes = [
   },
   {
     path: '/',
-    redirect: '/BasicLayout/welcome'
+    redirect: '/BlankLayout/login'
+  },
+  {
+    path: '/login',
+    redirect: '/BlankLayout/login'
   }
 ]
 
@@ -73,9 +77,9 @@ const router = new VueRouter({
 
 /**
  * 单点登录路由
- * @param to 
- * @param from 
- * @param next 
+ * @param to
+ * @param from
+ * @param next
  */
 function authSso(to, from, next) {
   if (!config.needSSO) {
