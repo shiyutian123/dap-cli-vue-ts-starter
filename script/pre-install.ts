@@ -112,24 +112,25 @@ function libraryNameCreate() {
  * has been cloned into a custom directory (i.e. it's not 'typescript-library-starter')
  */
 function libraryNameSuggestedAccept() {
-  _prompt.get(_promptSchemaLibrarySuggest, (err: any, res: any) => {
-    if (err) {
-      console.log(colors.red("Sorry, you'll need to type the library name"))
-      libraryNameCreate()
-    }
+  setupLibrary(libraryNameSuggested())
+  // _prompt.get(_promptSchemaLibrarySuggest, (err: any, res: any) => {
+  //   if (err) {
+  //     console.log(colors.red("Sorry, you'll need to type the library name"))
+  //     libraryNameCreate()
+  //   }
 
-    if (res.useSuggestedName.toLowerCase().charAt(0) === "y") {
-      setupLibrary(libraryNameSuggested())
-    } else {
-      libraryNameCreate()
-    }
-  })
+  //   if (res.useSuggestedName.toLowerCase().charAt(0) === "y") {
+  //     setupLibrary(libraryNameSuggested())
+  //   } else {
+  //     libraryNameCreate()
+  //   }
+  // })
 }
 
 /**
  * The library name is suggested by looking at the directory name of the
  * tools parent directory and converting it to kebab-case
- * 
+ *
  * The regex for this looks for any non-word or non-digit character, or
  * an underscore (as it's a word character), and replaces it with a dash.
  * Any leading or trailing dashes are then removed, before the string is
@@ -160,7 +161,7 @@ function libraryNameSuggestedIsDefault() {
 
 /**
  * Calls all of the functions needed to setup the library
- * 
+ *
  * @param libraryName
  */
 function setupLibrary(libraryName: string) {
@@ -202,10 +203,10 @@ function removeItems() {
 
 /**
  * Updates the contents of the template files with the library name or user details
- * 
- * @param libraryName 
- * @param username 
- * @param usermail 
+ *
+ * @param libraryName
+ * @param username
+ * @param usermail
  */
 function modifyContents(libraryName: string, username: string, usermail: string) {
   console.log(colors.underline.white("Modified"))
@@ -227,8 +228,8 @@ function modifyContents(libraryName: string, username: string, usermail: string)
 
 /**
  * Renames any template files to the new library name
- * 
- * @param libraryName 
+ *
+ * @param libraryName
  */
 function renameItems(libraryName: string) {
   console.log(colors.underline.white("Renamed"))

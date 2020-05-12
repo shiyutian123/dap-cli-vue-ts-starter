@@ -8,5 +8,6 @@
 import Vue from 'vue'
 import Antd from 'ant-design-vue'
 import 'moment/locale/zh-cn'
+import '../assets/less/app.less'
 
 Vue.use(Antd)
