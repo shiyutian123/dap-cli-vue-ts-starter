@@ -6,8 +6,8 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "postinstall": "ts-node ./script/pre-install.ts && npm run install-dap-adapter && npm run install-dap-ui",
-    "install-dap-ui": "cd ./node_modules/dap-ui && cnpm install",
-    "install-dap-adapter": "cd ./node_modules/dap-adapter && cnpm install",
+    "install-dap-ui": "cd ./node_modules/dap-ui && npm install",
+    "install-dap-adapter": "cd ./node_modules/dap-adapter && npm install",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
