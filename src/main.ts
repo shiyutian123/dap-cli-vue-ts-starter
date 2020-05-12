@@ -18,6 +18,7 @@ import ModulePlugin from './plugins/module.plugin'
 const config = require(`../public/config/${process.env.VUE_APP_CONFIG_JSON}`)
 // import DapUiExtends from "./dap-extends/index";
 
+import '../assets/less/app.less'
 import moduleRegister from './modules';
 
 // Vue.use(DapUiExtends);
