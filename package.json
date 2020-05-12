@@ -13,8 +13,8 @@
   "dependencies": {
     "ant-design-vue": "^1.4.12",
     "core-js": "^3.6.4",
-    "dap-adapter": "git+http://DAP_CLI:W2fDzsqNsTaKD3akJWyH@git.definesys.com/DDMP/dap-vue-adapter#v0.2.0",
-    "dap-ui": "git+http://DAP_CLI:W2fDzsqNsTaKD3akJWyH@git.definesys.com/DDMP/dap-vue-ui.git#v0.2.0",
+    "dap-adapter": "git+http://DAP_CLI:W2fDzsqNsTaKD3akJWyH@git.definesys.com/DDMP/dap-vue-adapter#v0.2.1",
+    "dap-ui": "git+http://DAP_CLI:W2fDzsqNsTaKD3akJWyH@git.definesys.com/DDMP/dap-vue-ui.git#v0.2.1",
     "reflect-metadata": "^0.1.13",
     "vue": "^2.6.11",
     "vue-class-component": "^7.2.2",
