@@ -341,11 +341,22 @@ export default class BasicLayout extends Vue {
     this.setActiveMenu(menu)
     this.breadcrumbNavs = []
     this.initBreadcrumbNavs(menu, this.menuList, [])
-     this.navigateToPage({
+    if (menu.meta.layout) {
+      this.navigateToPage({
+        name: menu.meta.path,
+        title: menu.title,
+        params: { 
+          code: menu.key,
+          layout: menu.meta.layout
+        }
+      })
+    } else {
+      this.navigateToPage({
         name: menu.meta.path,
         title: menu.title,
         params: { code: menu.key }
-    })
+      })
+    }
   }
 
   /**
