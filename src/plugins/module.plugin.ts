@@ -24,15 +24,19 @@ const ModulePlugin = {
     install: (Vue, option) => {
         const modulePlugin = {
             registerRouter(routers) {
+                const layoutRouter = routers.filter(route => route.layout !== undefined)
+                const businessRouter = routers.filter(route => route.layout === undefined || route.layout === 'BasicLayout')
+
                 const router = [
                     {
                         component: Layout,
                         name: 'modulePluginLayout',
                         path: '/modulePlugin',
                         children: [
-                            ...routers
+                            ...businessRouter
                         ]
-                    }
+                    },
+                    ...layoutRouter
                 ];
 
                 const staticMenu = routerToMenu(routers);
