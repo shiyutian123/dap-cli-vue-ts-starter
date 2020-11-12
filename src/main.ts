@@ -50,16 +50,17 @@ Vue.use(RequestPlugin, {
   }
 })
 
+Vue.use(ModulePlugin, {
+  store: store,
+  router: router
+})
+moduleRegister();
+
 new Vue({
   router,
   store,
   render: h => h(App),
   created () {
-    Vue.use(ModulePlugin, {
-      store: store,
-      router: router
-    })
-    moduleRegister();
     if (config.themeColor === 'dark') {
       store.commit('themeModule/setThemeMode', 'dark')
       store.commit('themeModule/setThemeColor', '#1890ff')
