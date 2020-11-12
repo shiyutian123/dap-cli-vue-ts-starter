@@ -24,6 +24,7 @@ const ModulePlugin = {
     install: (Vue, option) => {
         const modulePlugin = {
             registerRouter(routers) {
+                
                 const layoutRouter = routers.filter(route => route.layout !== undefined)
                 const businessRouter = routers.filter(route => route.layout === undefined || route.layout === 'BasicLayout')
 
@@ -35,14 +36,16 @@ const ModulePlugin = {
                         children: [
                             ...businessRouter
                         ]
-                    },
-                    ...layoutRouter
+                    }
                 ];
+                option.router.options.routes[0].children.push(...layoutRouter)
+                option.router.options.routes.push(...router)
+
 
                 const staticMenu = routerToMenu(routers);
                 option.store.commit('appInfoModule/SET_STATIC_MENU', staticMenu)
 
-                option.router.addRoutes(router);
+                option.router.addRoutes(option.router.options.routes);
             },
 
             registerVuexModule(storeModules) {
