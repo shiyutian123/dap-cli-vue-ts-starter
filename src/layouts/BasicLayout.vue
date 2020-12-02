@@ -124,8 +124,7 @@ import { IMenu } from '../clazz/IMenu'
 import apis from '../api'
 import { SET_ACTIVE_MENU } from '@/store/appInfo.store.ts'
 import { PUSH_ROUTER_VIEW, POP_ROUTER_VIEW } from '@/store/mutiTab.store.ts'
-
-import UserCenter from '@/components/UserCenter/UserCenter.vue'
+import { SET_USER } from '@/store/auth.store.ts'
 
 const config = require(`../../public/config/${process.env.VUE_APP_CONFIG_JSON}`)
 
@@ -163,22 +162,43 @@ export default class BasicLayout extends Vue {
   @State('showTabs', { namespace: 'mutiTabModule' }) showTabs: Array<any>;
 
   @authModule.Getter('tokenValue') tokenValue: any;
+  @authModule.Mutation(SET_USER) setUser: any;
   @appInfoModule.Mutation(SET_ACTIVE_MENU) setActiveMenu: any;
 
   @mutiTabModule.Mutation(PUSH_ROUTER_VIEW) pushTabRouterView: any;
   @mutiTabModule.Mutation(POP_ROUTER_VIEW) popTabRouterView: any;
 
-  @Watch('tokenValue')
+  @Watch('tokenValue', { immediate: true })
   onTokenValue (newVal: any, oldVal: any) {
     if (newVal) {
       this.queryAppInfo()
+      this.queryLoginUserInfo()
     }
   }
 
   created () {
-    if (this.tokenValue) {
-      this.queryAppInfo()
-    }
+  }
+  
+  queryLoginUserInfo () {
+    return new Promise(resolve => {
+      const request = {
+        url: apis.QUERY_LOGIN_USER_INFO,
+        method: 'get',
+        params: {}
+      };
+      (this as any).$request(request).aysncThen(
+        (resp: any) => {
+          if (resp.code === 'ok') {
+            this.setUser(resp.data.attributes)
+            const copy = JSON.parse(JSON.stringify(resp.data.attributes))
+            resolve(copy)
+          }
+        },
+        (businessError: any) => {
+          this.$message.error(businessError.message)
+        }
+      )
+    })
   }
 
   queryAppInfo () {
