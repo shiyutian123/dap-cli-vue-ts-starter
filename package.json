@@ -1,6 +1,7 @@
 {
   "name": "dap-plugin-scaffold-__myLibName__",
   "version": "0.1.0",
+  "dap_cli_version": "3.2.1",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
